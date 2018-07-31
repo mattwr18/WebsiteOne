@@ -16,10 +16,10 @@ You'll do your development work on your own copy of the project.
 
 [Additional Notes for installation on: [c9](https://github.com/AgileVentures/WebsiteOne/tree/develop/docs/c9), [ubuntu](https://github.com/AgileVentures/WebsiteOne/tree/develop/docs/ubuntu), [osx](https://github.com/AgileVentures/WebsiteOne/tree/develop/docs/osx) ]
 
-* On GitHub, fork [AgileVentures/WebSiteOne](https://help.github.com/articles/fork-a-repo/) into your own GitHub area. 
+* On GitHub, fork [AgileVentures/WebSiteOne](https://help.github.com/articles/fork-a-repo/) into your own GitHub area.
 * Clone your fork to your local development machine (or where-ever you are going to do your development coding).
   To clone the fork, run the following command on your local machine:
-    
+
     `git clone https://github.com/<your-github-name>/WebsiteOne`
 
 If you need more information about git and GitHub, see this [general guide to getting set up with an AgileVentures project](http://www.agileventures.org/articles/project-setup-new-users) (use https://github.com/AgileVentures/WebsiteOne as the project URL).
@@ -48,7 +48,14 @@ git fetch upstream
 git pull upstream develop
 ```
 
-### Step 3: Install the gems with `bundle install`
+### Step 3: There are two options of setting up, choose one.
+
+## Option 1 - Installation and Usage with Docker
+See the [Docker Project Setup](../docker/README.md) documentation
+
+## Option 2 - Local Installation
+
+### Step 1: Install the gems with `bundle install`
 
     bundle install
 
@@ -63,13 +70,13 @@ If you then try to install the `eventmachine` gem, it also fails like this: http
     brew link openssl --force
 
 After you do that, re-try running `bundle install` and you should be good to go on to the next step.
-    
+
 #### PostgreSQL and the `pg` gem
-The database used is [postgreSQL](https://www.postgresql.org/).  You need to have this installed and running on your local machine. 
+The database used is [postgreSQL](https://www.postgresql.org/).  You need to have this installed and running on your local machine.
 (The `pg` gem accesses the postgreSQL database.)  [Here are instructions on installing postgreSQL.](development_environment_set_up.md#postgreSQL)
 
 #### `capybara-webkit` gem
-The `capybara-webkit` gem is used for testing and depends on QT tools and libraries, including `libqtwebkit`.  Here are some [tips and troubleshooting solutions](development_environment_set_up.md#capybara-webkit) if you have trouble installing the `capybara-webkit` gem. 
+The `capybara-webkit` gem is used for testing and depends on QT tools and libraries, including `libqtwebkit`.  Here are some [tips and troubleshooting solutions](development_environment_set_up.md#capybara-webkit) if you have trouble installing the `capybara-webkit` gem.
 
 #### Updating Rails
 If you need to update rails, you can run `bundle update rails`.  If you run into problems with rails and `libv8` on OS X, try this:
@@ -79,9 +86,9 @@ If you need to update rails, you can run `bundle update rails`.  If you run into
    gem install therubyracer
    gem install libv8 -v '3.16.14.3' -- --with-system-v8
 ```
-    
-### Step 4: Install javascript dependencies using `npm`
-* Use [npm](https://www.npmjs.com/) to install all of the javascript dependencies for WSO: 
+
+### Step 2: Install javascript dependencies using `npm`
+* Use [npm](https://www.npmjs.com/) to install all of the javascript dependencies for WSO:
 
     `npm install`
 
@@ -92,8 +99,8 @@ If you need to update rails, you can run `bundle update rails`.  If you run into
 #### Phantomjs
 [Phantomjs](http://phantomjs.org/) is used to run tests.  [Here are detailed instructions for installing it.](development_environment_set_up.md#phantomjs)
 
-### Step 5: Request the .env file and confirm your locale
-    
+### Step 3: Request the .env file and confirm your locale
+
 * You'll have to get the `.env` file from one of the admins: @tansaku or @diraulo.  The project won't work without it.  You can send them a direct message (DM) on Slack.  The `.env` file should go in the root of the WSO project.
 * Add the following to that file:
 
@@ -108,15 +115,15 @@ RACK_TIMEOUT_SERVICE_TIMEOUT=200000000
 
 the above are test keys from https://developers.google.com/recaptcha/docs/faq
 
-    
 
-### Step 6: Set up the database
+
+### Step 4: Set up the database
 
 * Run the rake command to set up the database.  Be sure to use `bundle exec` so that the gems specific to this project (listed in the Gemfile) are used:
 
     `bundle exec rake db:setup`
-    
-### Step 7: Run the tests
+
+### Step 5: Run the tests
 
 Now you're ready to run the tests:
 
@@ -126,14 +133,14 @@ Now you're ready to run the tests:
 
 Discuss any errors with the team on Slack, in a scrum, or in mob or pair programming.
 
-### Step 8. Start the server
+### Step 6. Start the server
 
     bundle exec rails s
-    
+
 You can now see the system working on your local development environment!
-    
+
 Be sure to read and understand [how to contribute](../CONTRIBUTING.md) when you're ready to start developing and contributing.
- 
+
 
 
 
@@ -148,4 +155,3 @@ We recommend and follow the [Ruby Style Guide](https://github.com/bbatsov/ruby-s
 
 
 [Note: This page originally at https://github.com/AgileVentures/WebsiteOne/wiki/Project-Setup-%28New-Users%29]
-
